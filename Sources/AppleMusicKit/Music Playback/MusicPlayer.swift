@@ -8,9 +8,12 @@
 import Foundation
 import MediaPlayer
 
-class MusicPlayer {
+#if !os(macOS)
+public class MusicPlayer {
     
     private let musicPlayer = MPMusicPlayerApplicationController.applicationQueuePlayer
+    
+    public init() {}
     
     public func play() {
         musicPlayer.setQueue(with: .songs())
@@ -22,3 +25,4 @@ class MusicPlayer {
     }
     
 }
+#endif

@@ -31,6 +31,8 @@ public class Authorization {
     
     // MARK: - Public API
     
+    public init() {}
+    
     /// Returns if the user has granted authorization to the music library
     public func authorizationGranted() -> AppleMusicAuthorizationStatus {
         switch SKCloudServiceController.authorizationStatus() {
