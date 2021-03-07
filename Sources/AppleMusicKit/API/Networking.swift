@@ -11,9 +11,6 @@ import RxSwift
 import SwiftyJSON
 
 
-
-
-
 public class Networking {
     
     
@@ -30,6 +27,7 @@ public class Networking {
             }
             .tryMap { (data: Data) -> JSON in
                 if let json = try? JSON(data: data) {
+                    print(json)
                     return json
                 } else {
                     throw APIError.storefrontError(message: "No JSON object found")
@@ -58,6 +56,7 @@ public class Networking {
                 
                 if let data = data, let json = try? JSON(data: data) {
                     single(.success(json))
+                    print(json)
                 } else {
                     single(.error(APIError.storefrontError(message: "No JSON object found")))
                 }
