@@ -24,7 +24,7 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "AppleMusicKit",
-            dependencies: ["RxSwift"]),
+            dependencies: ["RxSwift", "SwiftyJSON"]),
         .testTarget(
             name: "AppleMusicKitTests",
             dependencies: ["AppleMusicKit", "RxSwift", "SwiftyJSON"]),
