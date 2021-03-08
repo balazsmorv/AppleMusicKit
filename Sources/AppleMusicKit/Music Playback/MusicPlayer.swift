@@ -20,6 +20,10 @@ public class MusicPlayer {
         musicPlayer.play()
     }
     
+    public func playLast() {
+        musicPlayer.play()
+    }
+    
     public func stop() {
         musicPlayer.stop()
     }
