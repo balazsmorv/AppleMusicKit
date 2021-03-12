@@ -17,11 +17,12 @@ public class MusicPlayer {
     
     let query = MPMediaQuery()
     
-    public func play() {
+    public func play(title: String) {
         
-        query.addFilterPredicate(MPMediaPropertyPredicate(value: "love",
+        query.addFilterPredicate(MPMediaPropertyPredicate(value: title,
                                                           forProperty: MPMediaItemPropertyTitle,
-                                                          comparisonType: .contains))
+                                                          comparisonType: .equalTo))
+        
         musicPlayer.setQueue(with: query)
         musicPlayer.play()
     }
