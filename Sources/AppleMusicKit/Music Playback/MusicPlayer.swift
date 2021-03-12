@@ -15,15 +15,17 @@ public class MusicPlayer {
     
     public init() {}
     
+    let query = MPMediaQuery()
+    
     public func play() {
-        musicPlayer.setQueue(with: .songs())
+        
+        query.addFilterPredicate(MPMediaPropertyPredicate(value: "love",
+                                                          forProperty: MPMediaItemPropertyTitle,
+                                                          comparisonType: .contains))
+        musicPlayer.setQueue(with: query)
         musicPlayer.play()
     }
-    
-    public func playLast() {
-        musicPlayer.play()
-    }
-    
+
     public func stop() {
         musicPlayer.stop()
     }
