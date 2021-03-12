@@ -24,6 +24,7 @@ public class MusicPlayer {
                                                           comparisonType: .equalTo))
         
         musicPlayer.setQueue(with: query)
+        musicPlayer.prepareToPlay()
         musicPlayer.play()
     }
 
