@@ -8,7 +8,7 @@
 import Foundation
 import MediaPlayer
 
-#if !os(macOS)
+
 public class MusicPlayer {
     
     private let musicPlayer = MPMusicPlayerApplicationController.applicationQueuePlayer
@@ -21,11 +21,25 @@ public class MusicPlayer {
         
         query.addFilterPredicate(MPMediaPropertyPredicate(value: title,
                                                           forProperty: MPMediaItemPropertyTitle,
-                                                          comparisonType: .equalTo))
+                                                          comparisonType: .contains))
         
         musicPlayer.setQueue(with: query)
         musicPlayer.prepareToPlay()
         musicPlayer.play()
+    }
+    
+    public func play() {
+        musicPlayer.setQueue(with: .songs())
+        musicPlayer.prepareToPlay()
+        musicPlayer.play()
+    }
+    
+    public func next() {
+        musicPlayer.skipToNextItem()
+    }
+    
+    public func previous() {
+        musicPlayer.skipToPreviousItem()
     }
 
     public func stop() {
@@ -33,4 +47,4 @@ public class MusicPlayer {
     }
     
 }
-#endif
+
